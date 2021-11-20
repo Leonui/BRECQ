@@ -5,10 +5,15 @@ from models.mnasnet import mnasnet as _mnasnet
 from models.regnet import regnetx_600m as _regnetx_600m
 from models.regnet import regnetx_3200m as _regnetx_3200m
 from torch.hub import load_state_dict_from_url
+import torchvision.models as models
 
 dependencies = ['torch']
 
+def alexnet(pretrained=False, **kwargs):
+    # Call the model, load pretrained weights
+    model = models.alexnet(pretrained)
 
+    return model
 def resnet18(pretrained=False, **kwargs):
     # Call the model, load pretrained weights
     model = _resnet18(**kwargs)
